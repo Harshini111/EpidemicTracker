@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EpidemicTracker.Data.Models
 {
-    public class User : BaseEntity
+    public class Patient : BaseEntity
     {
         public int OccupationId { get; set; }
         [ForeignKey("OccupationId")]
@@ -16,9 +16,11 @@ namespace EpidemicTracker.Data.Models
         public string LastName { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }
+        public string UniqueId { get; set; }
+        public string Password { get; set; }
         //public bool IsActive { get; set; }
         //public DateTime DateCreated { get; set; }
         //public DateTime DateModified { get; set; }
-
+        
     }
 }

@@ -8,9 +8,9 @@ namespace EpidemicTracker.Data.Models
     public class Address : BaseEntity
     {
         //public int Id { get; set; }
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set;}
+        public int PatientId { get; set; }
+        [ForeignKey("PatientId")]
+        public Patient Patient { get; set;}
         public int AddressTypeId { get; set; }
         [ForeignKey("AddressTypeId")]
         public AddressTypes AddressTypes {get; set;}

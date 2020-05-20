@@ -4,10 +4,10 @@ using System.Text;
 
 namespace EpidemicTracker.Data.Models
 {
-    public class Occupations : BaseEntity
+    public class TreatmentStatus : BaseEntity
     {
-        //public int Id { get; set; }
-        public string Name { get; set; }
+        //public int {get; set;}
+        public string Status { get; set; }
         //public bool IsActive { get; set; }
         //public DateTime DateCreated { get; set; }
         //public DateTime DateModified { get; set; }
