@@ -12,6 +12,7 @@ namespace EpidemicTracker.Data.Models
         [ForeignKey("HospitalId")]
         public Hospital Hospital { get; set; }
         public string Name { get; set; }
+        public string Phone { get; set; }
         public int StaffRoleId { get; set; }
         [ForeignKey("StaffRoleId")]
         public StaffRole StaffRole { get; set; }

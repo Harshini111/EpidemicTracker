@@ -9,7 +9,7 @@ namespace EpidemicTracker.Data.Models
     {
         public int Id { get; set; }
         [Required]
-        public int IsActive { get; set; }
+        public bool IsActive { get; set; }
         [Required]
         public DateTime DateCreated { get; set; }
         [Required]

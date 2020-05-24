@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Numerics;
 using System.Text;
 
 namespace EpidemicTracker.Data.Models
@@ -11,7 +12,7 @@ namespace EpidemicTracker.Data.Models
         [ForeignKey("OccupationId")]
         public Occupations Occupations { get; set; }
         //public int Id { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
