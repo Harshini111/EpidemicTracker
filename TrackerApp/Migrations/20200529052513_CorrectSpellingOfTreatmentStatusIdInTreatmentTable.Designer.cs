@@ -4,14 +4,16 @@ using EpidemicTracker.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EpidemicTracker.Data.Migrations
 {
     [DbContext(typeof(ETDbContext))]
-    partial class ETDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200529052513_CorrectSpellingOfTreatmentStatusIdInTreatmentTable")]
+    partial class CorrectSpellingOfTreatmentStatusIdInTreatmentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -351,12 +353,12 @@ namespace EpidemicTracker.Data.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TreatmentId")
+                    b.Property<int>("TreatmenId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TreatmentId");
+                    b.HasIndex("TreatmenId");
 
                     b.ToTable("Prescription");
                 });
@@ -504,7 +506,7 @@ namespace EpidemicTracker.Data.Migrations
                 {
                     b.HasOne("EpidemicTracker.Data.Models.Treatment", "Treatment")
                         .WithMany()
-                        .HasForeignKey("TreatmentId")
+                        .HasForeignKey("TreatmenId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

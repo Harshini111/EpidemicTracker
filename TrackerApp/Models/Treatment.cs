@@ -20,8 +20,8 @@ namespace EpidemicTracker.Data.Models
         public int DiseaseTypeId { get; set; }
         [ForeignKey("DiseaseTypeId")]
         public DiseaseType DiseaseType { get; set; }
-        public int TreatmenStatusId { get; set; }
-        [ForeignKey("TreatmenStatusId")]
+        public int TreatmentStatusId { get; set; }
+        [ForeignKey("TreatmentStatusId")]
         public TreatmentStatus TreatmentStatus { get; set; }
         public DateTime AdmittedOn { get; set; }
         public DateTime RelievingOn { get; set; }

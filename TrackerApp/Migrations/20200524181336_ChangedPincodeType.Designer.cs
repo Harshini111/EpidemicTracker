@@ -4,14 +4,16 @@ using EpidemicTracker.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EpidemicTracker.Data.Migrations
 {
     [DbContext(typeof(ETDbContext))]
-    partial class ETDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200524181336_ChangedPincodeType")]
+    partial class ChangedPincodeType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -351,12 +353,12 @@ namespace EpidemicTracker.Data.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TreatmentId")
+                    b.Property<int>("TreatmenId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TreatmentId");
+                    b.HasIndex("TreatmenId");
 
                     b.ToTable("Prescription");
                 });
@@ -419,7 +421,7 @@ namespace EpidemicTracker.Data.Migrations
                     b.Property<DateTime>("RelievingOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TreatmentStatusId")
+                    b.Property<int>("TreatmenStatusId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -432,7 +434,7 @@ namespace EpidemicTracker.Data.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.HasIndex("TreatmentStatusId");
+                    b.HasIndex("TreatmenStatusId");
 
                     b.ToTable("Treatment");
                 });
@@ -504,7 +506,7 @@ namespace EpidemicTracker.Data.Migrations
                 {
                     b.HasOne("EpidemicTracker.Data.Models.Treatment", "Treatment")
                         .WithMany()
-                        .HasForeignKey("TreatmentId")
+                        .HasForeignKey("TreatmenId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -537,7 +539,7 @@ namespace EpidemicTracker.Data.Migrations
 
                     b.HasOne("EpidemicTracker.Data.Models.TreatmentStatus", "TreatmentStatus")
                         .WithMany()
-                        .HasForeignKey("TreatmentStatusId")
+                        .HasForeignKey("TreatmenStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

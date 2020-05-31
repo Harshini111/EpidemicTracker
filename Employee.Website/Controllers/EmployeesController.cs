@@ -18,7 +18,6 @@ namespace Employee.Website.Controllers
             this.EmployeeService = employeeService;
         }
 
-
         public JsonFileEmployeeService EmployeeService { get; }
 
         [HttpGet]
@@ -32,7 +31,6 @@ namespace Employee.Website.Controllers
         public Employees Get([FromQuery] int Id)
         {
             return EmployeeService.GetEmployeeById(Id);
-
         }
 
         [Route("Delete")]
@@ -40,7 +38,6 @@ namespace Employee.Website.Controllers
         public ActionResult Delete([FromQuery]int Id)
         {
             EmployeeService.DeleteEmployeeById(Id);
-
             return Ok();
         }
 
@@ -49,24 +46,7 @@ namespace Employee.Website.Controllers
         public ActionResult Post([FromBody] Employees employee)
         {
             EmployeeService.AddEmployee(employee);
-
             return Ok();
         }
     }
 }
-
-
-        
-        
-        
-        
-        
-        
-/*      [Route("Add")]
-        [HttpGet]
-        public ActionResult GetEmp([FromQuery]int Id)
-        {
-            EmployeeService.AddEmployee(Id);
-
-            return Ok();
-        }*/

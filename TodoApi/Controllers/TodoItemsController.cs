@@ -69,7 +69,6 @@ namespace TodoApi.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
