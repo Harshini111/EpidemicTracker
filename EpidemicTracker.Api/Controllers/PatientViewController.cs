@@ -6,6 +6,7 @@ using EpidemicTracker.Api.ViewModels;
 using EpidemicTracker.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace EpidemicTracker.Api.Controllers
@@ -111,5 +112,42 @@ namespace EpidemicTracker.Api.Controllers
 
             return patientViewModel;
         }
+        // GET: api/Patient
+        //[Route("patientdetails")]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Patient>>> GetPatients()
+        {
+            return await _context.Patient.ToListAsync();
+        }
+        // GET: api/Patient/5
+        //[Route("patientdetailsById")]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Patient>> GetPatient(int id)
+        {
+            var patient = await _context.Patient.FindAsync(id);
+
+            if (patient == null)
+            {
+                return NotFound();
+            }
+
+            return patient;
+        }
+
+        /*//GET: api/Treatment
+        [HttpGet("{id")]
+        public async Task<ActionResult<Treatment>> GetTreatment(int id)
+        {
+            var treatment = await _context.Treatment.FindAsync(id );
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+            return treatment;
+        }
+        private bool TodoItemExists(long id)
+        {
+            return _context.TodoItems.Any(e => e.Id == id);
+        }*/
     }
 }

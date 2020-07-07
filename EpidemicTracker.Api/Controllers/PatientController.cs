@@ -7,6 +7,7 @@ using EpidemicTracker.Api.ViewModels;
 using EpidemicTracker.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace EpidemicTracker.Api.Controllers
